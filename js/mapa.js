@@ -1,3 +1,9 @@
+//muni-tpl
+const pathtemplate="templates/argenmap-leaflet-muni-tpl/js/";
+const muni="Municipalidad de Pehuajó"
+const munilink="http://www.pehuajo.gob.ar/"
+document.title =muni;
+
 var atrib_ign = "<a href='http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2' target='_blank'>Instituto Geográfico Nacional</a> + <a href='http://www.osm.org/copyright' target='_blank'>OpenStreetMap</a>",
     baseMaps = {},
     overlayMaps = new Object(),
@@ -6,27 +12,26 @@ var atrib_ign = "<a href='http://www.ign.gob.ar/AreaServicios/Argenmap/Introducc
 var argenmap = "";
 var mapa = "";
 
+
+
+	
 //Change logotype
-$('#top-left-logo-link').attr("href","http://www.pehuajo.gob.ar/");
-//$('#top-left-logo').attr("src","templates/argenmap-leaflet-ign-tpl/img/logo.png");
-$('#top-left-logo').attr("alt","Municipalidad de Pehuajó");
-$('#top-left-logo').attr("title","Municipalidad de Pehuajó");
-//$('#top-left-logo').css("width","100px");
-//$('#top-right-logo-link').attr("href","templates/argenmap-leaflet-ign-tpl/files/referencias.pdf");
+$('#top-left-logo-link').attr("href",munilink);
+$('#top-left-logo').attr("alt",muni);
+$('#top-left-logo').attr("title",muni);
 $('#top-right-logo-link').attr("href","#");
-$('#top-right-logo').attr("src","templates/argenmap-leaflet-ign-tpl/img/referencias_icono.png");
+$('#top-right-logo').attr("src","templates/argenmap-leaflet-muni-tpl/img/referencias_icono.png");
 $('#top-right-logo').attr("alt","Referencias");
 $('#top-right-logo').attr("title","Referencias");
-//$('#top-right-logo').css("width","35px");
-//$('#top-right-logo').css("top","0px");
+
 
 $('#top-right-logo').on('click', function() {
   event.preventDefault();
-  //$.fancybox.open( '<div class="message"><h2>Referencias</h2><p><img src="templates/argenmap-leaflet-ign-tpl/img/referencias.png" style="width:50%"></p></div>' );
+  //$.fancybox.open( '<div class="message"><h2>Referencias</h2><p><img src="templates/argenmap-leaflet-muni-tpl/img/referencias.png" style="width:50%"></p></div>' );
   //$.fancybox.getInstance();
   //$(".fancybox").fancybox({"width":400,"height":300});
   $.fancybox.open({
-	src : 'templates/argenmap-leaflet-ign-tpl/img/referencias.png',
+	src : 'templates/argenmap-leaflet-muni-tpl/img/referencias.png',
 	type : 'image',
 	closeBtn: 'true'
   });
@@ -39,29 +44,29 @@ gestorMenu.addPlugin("leaflet","https://cdnjs.cloudflare.com/ajax/libs/leaflet/1
     // Awesome Markers
 	gestorMenu.addPlugin("AwesomeMarkers","https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.1/leaflet.awesome-markers.min.js");
 	// Leaflet Zoomhome plugin
-	gestorMenu.addPlugin("ZoomHome","templates/argenmap-leaflet-ign-tpl/js/leaflet-zoomhome/dist/leaflet.zoomhome.min.js");
+	gestorMenu.addPlugin("ZoomHome",pathtemplate+"leaflet-zoomhome/dist/leaflet.zoomhome.min.js");
 	// Leaflet Bing Layer
-	gestorMenu.addPlugin("BingLayer","templates/argenmap-leaflet-ign-tpl/js/leaflet-bing-layer-gh-pages/leaflet-bing-layer.js");
+	gestorMenu.addPlugin("BingLayer",pathtemplate+"leaflet-bing-layer-gh-pages/leaflet-bing-layer.js");
 	// <!-- Leaflet Minimap plugin -->
-	gestorMenu.addPlugin("minimap","templates/argenmap-leaflet-ign-tpl/js/leaflet-minimap/Control.MiniMap.js");
+	gestorMenu.addPlugin("minimap",pathtemplate+"leaflet-minimap/Control.MiniMap.js");
 	// <!-- Leaflet Locate plugin -->
-	gestorMenu.addPlugin("locate","templates/argenmap-leaflet-ign-tpl/js/leaflet-locate/L.Control.Locate.min.js");
+	gestorMenu.addPlugin("locate",pathtemplate+"leaflet-locate/L.Control.Locate.min.js");
 	// <!-- Leaflet Mouse Position plugin -->
-	gestorMenu.addPlugin("MousePosition","templates/argenmap-leaflet-ign-tpl/js/leaflet-mouseposition/src/L.Control.MousePosition.js");
+	gestorMenu.addPlugin("MousePosition",pathtemplate+"leaflet-mouseposition/src/L.Control.MousePosition.js");
 	// <!-- Leaflet Measure plugin --> 
-	gestorMenu.addPlugin("Measure","templates/argenmap-leaflet-ign-tpl/js/leaflet-measure/leaflet-measure.js");
+	gestorMenu.addPlugin("Measure",pathtemplate+"leaflet-measure/leaflet-measure.js");
 	// <!-- Leaflet EasyPrint plugin -->
-	gestorMenu.addPlugin("EasyPrint","templates/argenmap-leaflet-ign-tpl/js/leaflet-easyPrint/bundle.js");
+	gestorMenu.addPlugin("EasyPrint",pathtemplate+"leaflet-easyPrint/bundle.js");
 	// <!-- Leaflet Control.FullScreen plugin -->
-	gestorMenu.addPlugin("FullScreen","templates/argenmap-leaflet-ign-tpl/js/leaflet-fullscreen/Control.FullScreen.js");
+	gestorMenu.addPlugin("FullScreen",pathtemplate+"leaflet-fullscreen/Control.FullScreen.js");
 	// <!-- Leaflet BetterWMS -->
-	gestorMenu.addPlugin("betterWMS","templates/argenmap-leaflet-ign-tpl/js/leaflet-wms/leaflet.wms.js");
+	gestorMenu.addPlugin("betterWMS",pathtemplate+"leaflet-wms/leaflet.wms.js");
 	// <!-- Leaflet Draw -->  
 	gestorMenu.addPlugin("Draw","https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js")
 	// <!-- Leaflet SimpleGraticule -->
-	gestorMenu.addPlugin("graticula","templates/argenmap-leaflet-ign-tpl/js/leaflet-simplegraticule/L.SimpleGraticule.js");
+	gestorMenu.addPlugin("graticula",pathtemplate+"leaflet-simplegraticule/L.SimpleGraticule.js");
 	// <!-- Leaflet WMTS -->
-	gestorMenu.addPlugin("WMTS","templates/argenmap-leaflet-ign-tpl/js/leaflet-wmts/leaflet-tilelayer-wmts.js");
+	gestorMenu.addPlugin("WMTS",pathtemplate+"leaflet-wmts/leaflet-tilelayer-wmts.js");
 });
 
 // Add plugins to map when (and if) avaiable
@@ -387,8 +392,8 @@ $("body").on("pluginLoad", function(event, plugin){
 
 			//Construye el mapa
 			mapa = L.map('mapa', {
-			    center: [-40, -59],
-			    zoom: 4,
+			    center: [-35.910758, -61.933611],
+			    zoom: 9,
 			    layers: [],
 				zoomControl: false,
 				minZoom: 3,
